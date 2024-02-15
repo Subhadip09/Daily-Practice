@@ -1,6 +1,16 @@
 package feb12;
 
 public class LoginException extends Exception {
-	String email;
-	String password;
+	
+	public LoginException() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public LoginException(String message) {
+		super(message);
+		// TODO Auto-generated constructor stub
+	}
+
 }
+
