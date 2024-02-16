@@ -14,12 +14,9 @@ public class Employee extends User {
 	{
 		return salary*12;
 	}
-	
+	//main method
 	public static void main(String[] args) {
 		Employee obj = new Employee(10, "Subhadip", 10000);
 		System.out.println("The annual salary of "+ obj.name + " is " + obj.calculateAnnualSalary());
 	}
-	
-	
-	
 }
