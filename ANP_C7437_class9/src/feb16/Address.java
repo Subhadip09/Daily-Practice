@@ -1,4 +1,4 @@
-package feb16;
+ package feb16;
 
 public class Address {
 	//as java bean i am defining this address class
@@ -25,15 +25,17 @@ public class Address {
 		this.state = state;
 	}
 	
+	public Address() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Address(String pincode, String city, String state) {
 		super();
 		this.pincode = pincode;
 		this.city = city;
 		this.state = state;
 	}
-	public Address() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	@Override
 	public String toString() {
 		return "Address [pincode=" + pincode + ", city=" + city + ", state=" + state + "]";

@@ -1,7 +1,7 @@
 package feb16;
 
 public class Student {
-	// I am creating address as datatype into student class
+	// I am creating address as datatype into this student class
 	// and this is called has-a relationship
 	
 	private String name;
@@ -10,6 +10,8 @@ public class Student {
 	
 	//has a relationship ka example
 	private Address address;
+	//if a student have 4 addresses
+	//private List<Address>address;
 
 	public Student()
 	{
@@ -53,5 +55,5 @@ public class Student {
 		return "Student [name=" + name + ", id=" + id + ", address=" + address + "]";
 	}
 	
-	//getter setter, parameter const, default const, toString
+	//getter setter, parameter constructor, default constructor, toString
 }
