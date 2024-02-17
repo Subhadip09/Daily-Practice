@@ -1,7 +1,7 @@
 package feb13;
 
 public class feb13
-{
+{  // Custom Exception & Exception propagation
 	public static void check() throws ExcessAmountWithdrawException
 	{
 		Bank.withdraw(23232);
