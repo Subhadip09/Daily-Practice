@@ -37,7 +37,9 @@ public class BasicOfCollection {
 		System.out.println(Arrays.toString(arr1));
 		
 		//ArrayList
-		
+		//List is allowing duplicate values & maintain the same insertion order
+		//jiss order mai insert kr rha hu uss order mai hi show krega
+		//duplicate & multiple null values allow hai ArrayList mai
 		List<Integer> list = new ArrayList<> ();
 		
 		list.add(23);
@@ -53,6 +55,9 @@ public class BasicOfCollection {
 		System.out.println(list);
 		
 		//HashSet
+		//HashSet mai single null value allow hai
+		//HashSet mai insertion order follow nhi hoga
+		//HashSet mai duplicate value allow nhi hai
 		Set<Integer> list1 = new HashSet<> ();
 		
 		list1.add(23);
