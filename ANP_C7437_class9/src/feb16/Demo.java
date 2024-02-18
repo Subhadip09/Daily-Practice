@@ -1,7 +1,10 @@
 package feb16;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
+import java.util.Vector;
 
 public class Demo {
 	public static void main(String[] args) {
@@ -96,10 +99,65 @@ public class Demo {
 		{
 			System.out.println("list print by forEach loop");
 			System.out.println(stu);
+			// to null all the city
 			stu.getAddress().setCity(null);
 			System.out.println(stu);
 		}
 		
+		System.out.println();
+		System.out.println();
 		
+		//LinkedList
+		
+		// 100 percent same as ArrayList but internally implementation is totally different , alag tarika seh data save ho rha hai    
+		LinkedList<Integer> linklist = new LinkedList<>();
+		linklist.add(12); // save in the form of node
+		linklist.add(2);
+		linklist.add(98);
+		linklist.add(19);
+		linklist.add(77);
+		System.out.println("--------------LinkedList-------------");
+		System.out.println(linklist);
+		
+		System.out.println();
+		System.out.println();
+		
+		//Vector
+		//more than one thread can't work on vector
+		//bcz vector is synchronized, where synchronized comes in java-- there multi-threading is not possible
+		
+		Vector<String> vc = new Vector<> ();
+		
+		vc.add("Subhadip");
+		vc.add("Piyush");
+		vc.add("Ayush");
+		vc.add("Nitin");
+		vc.remove(3);
+		System.out.println("--------------Vector-------------");
+		System.out.println(vc);
+		
+		System.out.println();
+		System.out.println();
+		
+		//Stack 
+		//same as ArrayLList but it follows LIFO(last in first out)
+		// jo last mai in ho rha hai wo sabse pahle out hoga
+		
+		Stack<Integer> st = new Stack<>();
+		st.add(23);
+		st.add(33);
+		st.add(65);
+		st.add(886);
+		st.add(986);
+		System.out.println("--------------Stack_-------------");
+		System.out.println(st);
+		// to delete the pop is used
+		
+		st.pop();
+		st.pop();
+		st.pop();
+		// to show the data peek is used
+		System.out.println(st.peek());
+		System.out.println(st);
 	}
 }
