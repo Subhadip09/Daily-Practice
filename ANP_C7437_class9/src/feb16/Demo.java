@@ -39,6 +39,9 @@ public class Demo {
 		
 		System.out.println();
 		
+		Student s5 = new Student("Matrix", 10, a1);
+		System.out.println(s4);
+		
 		
 		//to insert all the data in ArrayList
 		//int [] arr = new int [8];
@@ -61,11 +64,32 @@ public class Demo {
 		
 		
 		List<Student> list = new ArrayList<> (shortList);
-		boolean dataInserted = list.addAll(shortList);
+//		boolean dataInserted = list.addAll(shortList);
+		;
+		
 		list.add(s1);
 		list.add(s2);
 		list.add(s3);
 		list.add(s4);
+		// to set value at particular index position in array
+		list.add(2, s5); // ye kaam krna preferable nhi hai. bcz if  there data of 10000 students, if we put some value in position 5000, the rest 5000 data will be hamper. they will be shift one position age ki taraf. Due to this server will be down.
+		
+		// it can't be solve  by arrayList--> data manipulation k liye we don't use arrayList
+		// ArrayList is not compatible for data manipulation
+		// To perform any kind of manipulation into the data, whi8ch kind of datatype should be used? -> LinkedList
+		
+		//to remove data
+		//suppose i want to remove s5 data
+		list.remove(s5);
+		//suppose i want to remove entire data of shortList
+		list.removeAll(shortList);
+		
+		//suppose i want to get size of my list
+		System.out.println(list.size());
+		
+		//suppose i want to yeah student hai ya nhi
+		System.out.println(list.contains(s5));
+		
 		System.out.println("------ArrayList------");
 		System.out.println(list);
 		for(Student stu:list)
