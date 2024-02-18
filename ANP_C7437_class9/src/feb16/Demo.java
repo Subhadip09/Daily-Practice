@@ -88,13 +88,15 @@ public class Demo {
 		System.out.println(list.size());
 		
 		//suppose i want to yeah student hai ya nhi
-		System.out.println(list.contains(s5));
+		System.out.println(list.contains(s5)); // answer - false
 		
 		System.out.println("------ArrayList------");
 		System.out.println(list);
 		for(Student stu:list)
 		{
 			System.out.println("list print by forEach loop");
+			System.out.println(stu);
+			stu.getAddress().setCity(null);
 			System.out.println(stu);
 		}
 		
