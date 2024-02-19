@@ -142,21 +142,21 @@ public class Demo {
 		//Stack 
 		//same as ArrayLList but it follows LIFO(last in first out)
 		// jo last mai in ho rha hai wo sabse pahle out hoga
-		
+		// jo last mai aya hai wohi pehle jayega
 		Stack<Integer> st = new Stack<>();
 		st.add(23);
 		st.add(33);
 		st.add(65);
 		st.add(886);
 		st.add(986);
-		System.out.println("--------------Stack_-------------");
+		System.out.println("--------------Stack--------------");
 		System.out.println(st);
-		// to delete the pop is used
+		// to delete the last data pop is used
 		
 		st.pop();
 		st.pop();
 		st.pop();
-		// to show the data peek is used
+		// to show the last data peek is used
 		System.out.println(st.peek());
 		System.out.println(st);
 	}
