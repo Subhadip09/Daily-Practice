@@ -1,20 +1,17 @@
 package feb19;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class Demo {
 	
 	public static void reverseString(String ss)
 	{
 		// you have to reverse a string using stack
-		// string to stack mai character data type k form mai store karlo
+		// string ko stack mai character data type k form mai store karlo
 		// then ek dusre string mai ek ek data ko pop out kark add krdo
 		
-		
-		char[] charArray = ss.toCharArray();
+		// subhadip == {s,u,b,h,a,d,i,p}
+		char[] charArray = ss.toCharArray(); // converting the string to array from
 //		
 //		List<char[]> l = Arrays.asList(charArray);
 //		System.out.println(l);
@@ -24,6 +21,7 @@ public class Demo {
 		// stack k constructor list type k data lega
 		Stack<Character> st = new Stack<>();
 		
+		// traversing the charArray into stack
 		for(Character c: charArray)
 		{
 			st.push(c);
