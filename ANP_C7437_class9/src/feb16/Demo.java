@@ -68,7 +68,7 @@ public class Demo {
 		
 		List<Student> list = new ArrayList<> (shortList);
 //		boolean dataInserted = list.addAll(shortList);
-		;
+		
 		
 		list.add(s1);
 		list.add(s2);
