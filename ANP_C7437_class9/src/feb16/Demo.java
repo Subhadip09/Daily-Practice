@@ -29,24 +29,24 @@ public class Demo {
 		System.out.println(s1);
 		
 		Student s2 = new Student("Dip", 10, new Address("21345", "kolkata", "WB")); // parameterized constructor
-		System.out.println(s2);
+		//System.out.println(s2);
 		
 		Student s3 = new Student("Raj", 10, new Address("21345", "kolkata", "WB"));
 		// to change the city of a student
 		s3.getAddress().setCity("Mumbai");
-		System.out.println(s3);
+		//System.out.println(s3);
 		
 		
 		Student s4 = new Student("Rajdip", 10, a1);
-		System.out.println(s4);
+		//System.out.println(s4);
 		
-		System.out.println();
+		//System.out.println();
 		
 		Student s5 = new Student("Matrix", 10, a1);
-		System.out.println(s4);
+		// System.out.println(s5);
 		
 		
-		//to insert all the data in ArrayList
+		//to insert all the data in Array
 		//int [] arr = new int [8];
 		Student [] arrOfStudent = new Student[8];
 		arrOfStudent[0] = s1;
@@ -100,7 +100,7 @@ public class Demo {
 			System.out.println("list print by forEach loop");
 			System.out.println(stu);
 			// to null all the city
-			stu.getAddress().setCity(null);
+			s5.getAddress().setCity(null);
 			System.out.println(stu);
 		}
 		
