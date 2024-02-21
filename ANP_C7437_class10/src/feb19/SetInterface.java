@@ -53,6 +53,7 @@ public class SetInterface {
 		
 		//Queue
 		//follows First in First out mechanism & data will be remove from front
+		//fifo(queue) lifo(Stack)
 		System.out.println("<--------Queue-------->");
 		PriorityQueue<String> pq = new PriorityQueue<>();
 		pq.add("subhadip");
