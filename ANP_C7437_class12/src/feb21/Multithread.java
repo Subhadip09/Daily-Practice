@@ -39,7 +39,7 @@ public class Multithread extends Thread{
 		
 		for(int i = 0; i<250; i++)
 		{
-			System.out.println(i + "main thread"+ Thread.currentThread().getPriority()); //Thread.currentThread().getPriority() is used to prioritize the thread
+			System.out.println(i + "main thread"+ Thread.currentThread().getPriority()); //Thread.currentThread().getPriority() is used to check the priority of the thread
 		}
 	}
 }
