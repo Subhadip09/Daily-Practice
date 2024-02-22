@@ -54,9 +54,9 @@ public class MapMap {
 				
 		Set<Entry<String, Integer>> tset = tmap.entrySet();
 				
-				for(Entry<String, Integer>  et: tset)
-				{
-					System.out.println(et.getKey()+"----->"+et.getValue());
-				}
+		for(Entry<String, Integer>  et: tset)
+		{
+			System.out.println(et.getKey()+"----->"+et.getValue());
+		}
 	}
 }
