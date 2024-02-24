@@ -22,15 +22,26 @@ public class Q8_DiamondTraversal {
 				}
 			}
 			
-			for(int j = N-1; j>=0; j--)
+			int k = N-1;
+			for(int j = (N-1)/2; j>=0; j--)
 			{
-				for(int k = N-1; k>=0; k--)
+				System.out.print(matrix[j][k]+ " ");  // 6 2
+				k--;
+			}
+			
+			for(int l = 1; l<=1; l++)
+			{
+				for(int m = ((N-1)/2)-1; m>=0; m--)
 				{
-					if(j-k == 1 || k-j == 1)
-					{
-						System.out.print(matrix[j][k] + " ");
-					}
+					System.out.print(matrix[l][m] + " "); // 4
 				}
+			} 
+			
+			int o = 1;
+			for(int p = ((N-1)/2)+1; p<=N-1; p++)
+			{
+				System.out.print(matrix[p][o] + " "); // 8
+				o++;
 			}
 		}
 	}
