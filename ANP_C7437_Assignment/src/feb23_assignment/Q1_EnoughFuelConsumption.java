@@ -1,4 +1,4 @@
-// Enough Fuel Consumption
+// 
 // You are given two numbers, stored in the variable with the following names
 // fuel, distance
 // Find the value of required, such that
