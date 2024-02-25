@@ -11,6 +11,7 @@ public class ForthThread {
 		Thread t1 = new Thread(sc);
 		t1.start();
 		
+		// it is not good thing
 //		try {
 //			Thread.sleep(3000);
 //		} catch (InterruptedException e) {
@@ -18,6 +19,8 @@ public class ForthThread {
 //			e.printStackTrace();
 //		}
 		
+		// it works better
+		// join() thread ko extra wait nhi krna pada
 		try {
 			t1.join();
 		} catch (InterruptedException e) {
