@@ -1,11 +1,51 @@
 package quiz;
 
-class Test{
-	public static void main(String ar[]) {
+class Test
 
-		float height=6.45; // this statement will generate error
+{
 
-		System.out.println("Height= "+height);
+public void arr()
 
-		}
+{
+
+try
+
+{
+
+int y[] = { 2 , 7, 8 , 6};
+
+for (int j=0; j< y.length; )
+
+{
+
+j++;
+
+y[j] = y[j-1];
+
+System.out.print(y[j] + " ");
+
+}}catch(IndexOutOfBoundsException ie)
+
+{
+
+ie.printStackTrace();
+
+}
+
+catch(Exception e) {
+
+e.printStackTrace();
+
+}
+
+}
+
+public static void main (String args[])
+
+{
+
+Test r=new Test();
+
+}
+
 }
