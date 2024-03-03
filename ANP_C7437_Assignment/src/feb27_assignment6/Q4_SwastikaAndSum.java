@@ -22,24 +22,35 @@ public class Q4_SwastikaAndSum {
 		int sum1 = 0;
 		int sum2 = 0;
 		
-		for(int i = 0; i<n-1; i++)
+		for(int i = 0; i<n; i++)
 		{
-			for(int j = m-1; j>=0; j--)
+			for(int j = 0; j<m; j++)
 			{
-				if(j>2 && i==0)
+				if((i==0 && j>(m-1)/2) || (i==n-1 && j<(m-1)/2))
 				{
-					sum1 = sum1 + arr[i][j];
+					sum1 += arr[i][j];
 				}
-				else if(j == 2)
+				else if(j==(m-1)/2)
 				{
-					sum1 = sum1 + arr[i][j];
-				}
-				else if(i == 3 && j<2)
-				{
-					sum1 = sum1 + arr[i][j];
+					sum1 += arr[i][j];
 				}
 			}
 		}
-		System.out.println(sum1);
+		
+		for(int i = 0; i<n; i++)
+		{
+			for(int j = 0; j<m; j++)
+			{
+				if((j==0 && i<(n-1)/2) || (j==m-1 && i>(n-1)/2))
+				{
+					sum2 += arr[i][j]; 
+				}
+				else if(i == (n-1)/2)
+				{
+					sum2 += arr[i][j];
+				}
+			}
+		}
+		System.out.println(sum1 - sum2);
 	}
 }
