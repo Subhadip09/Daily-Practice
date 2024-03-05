@@ -1,0 +1,53 @@
+--MySQL(class1)
+create database batch7437;
+use batch7437;
+show tables;
+
+create table student(StudentId int primary key, StudentName varchar(25), StudentAddress varchar(125), StudentMarks int );
+desc student;
+insert into student values(1, "Subhadip", "Kolkata", 90);
+select * from student;
+insert into student values (2, "Anubhab", "Bhopal", 95), (3, "Piyush", "Bhopal", 88), (4, "Kartik", "Indore", 85), (5, "Maddy", "Indore", 75), (6, "Akash", "Ujjain", 80);
+insert into student values(7, "Subhadip", "Kolkata", 90);
+select * from student;
+
+select * from student where StudentAddress = "Bhopal";
+select * from student where StudentAddress = "Bhopal" AND StudentId = 3;
+select * from student where StudentAddress = "Bhopal" OR StudentAddress = "Ujjain";
+select * from student where StudentAddress = "Bhopal" AND StudentAddress = "Ujjain";
+select * from student where (StudentAddress = "Indore" and StudentId >2) or StudentAddress = "Bhopal";
+
+select distinct(StudentAddress) from student;
+select distinct(StudentAddress) as Address from student;
+select distinct StudentName, StudentAddress from student;
+
+create table employee (EmpId int primary key, EmpName varchar(25), EmpDept varchar(25), Salary int);
+insert into employee values(23, "Sachin", "CS", 45000), (20, "Vivek", "IT", 40000), (24, "Subham", "IT", 30000), (30, "Raghav", "CS", 60000), (15, "Piyush", "CS", 35000), (19, "Yash", "CS", 48000), (1, "Subhadip", "CS", 65000);
+select * from employee;
+select * from employee order by salary;
+select * from employee order by salary desc;
+select * from employee order by EmpName;
+-- // I want to get first salary
+select * from employee order by salary limit 1;
+select * from employee order by salary desc limit 2 offset 2;
+
+-- to find departmentwise highest salary
+select max(Salary) from employee;
+select * from employee where Salary = max(Salary); -- wrong
+-- to find count of cs & it
+select count(*), EmpDept from employee group by EmpDept;
+select count(*) as TotalPerson, EmpDept from employee group by EmpDept;
+select max(Salary) as HighestSalary, EmpDept from employee group by EmpDept; 
+select avg(Salary) as AvgSalary, EmpDept from employee group by EmpDept; 
+select EmpDept, avg(Salary) from Employee group by EmpDept having avg(Salary) > 10000;
+
+select EmpDept from employee group by EmpDept having Salary > 45000; -- showing error
+-- join with another table using foreign key
+create table Orders(OrderId int , OrderName varchar(225), OrderValue int, PersonId int, foreign key (PersonId) references employee(EmpId));
+desc Orders;
+
+insert into Orders values(14, "laptop", 45000, 23) ;
+insert into Orders values(16, "pen", 30, 1), (17, "book", 300, 24), (21, "bag", 250, 20), (50, "sharpner", 10, 30), (45, "pen", 50, 15);
+select * from Employee;
+select * from Orders;
+-- drop table Orders;
