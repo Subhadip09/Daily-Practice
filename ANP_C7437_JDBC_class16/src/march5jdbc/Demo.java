@@ -2,6 +2,7 @@ package march5jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Demo {
@@ -21,8 +22,15 @@ public class Demo {
 		try {
 			Connection con = DriverManager.getConnection(url, username, password);
 //		3rd Step: Create database object
-			 
-		} catch (SQLException e) {
+			PreparedStatement ps =  con.prepareStatement("insert into Student values(5656, 'Kali', 'Pitampur')");
+			//when we updating data
+			int row = ps.executeUpdate();
+			
+			if(row > 0)
+			{
+				System.out.println("data get inserted successfully");
+			}
+;		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
