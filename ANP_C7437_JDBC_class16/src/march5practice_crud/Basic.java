@@ -48,6 +48,9 @@ public class Basic {
 					case 2:
 						bs.getAlldata();
 						break;
+					case 3:
+						bs.updatedata();
+						break;
 					case 5:
 						flag = false;
 						System.out.println("Thank you for visiting 🙏🙏🙏🙏🙏");
@@ -91,6 +94,24 @@ public class Basic {
 			String address = rs.getString("StudentAddress");
 			
 			System.out.println("Student ---> " + id + " " + name + " " + address);
+		}
+	}
+	public void updatedata() throws SQLException
+	{
+		System.out.println("enter the name you want to set ");
+		String name = sc.next();
+		System.out.println("enter the id where you want to update ");
+		int id = sc.nextInt();
+		
+		PreparedStatement ps =  con.prepareStatement("update Student set name = ? where id = ?");
+		
+		ps.setString(1, name);
+		ps.setInt(2, id);
+		
+		int row = ps.executeUpdate();
+		if(row > 0)
+		{
+			System.out.println("data updated successfully");
 		}
 	}
 }
