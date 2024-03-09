@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import customerApp.Dao.OrderDao;
+import customerApp.Exception.OrderException;
 import customerApp.Model.Orders;
 import customerApp.util.Dao;
 import customerApp.util.QueryUtil;
@@ -86,20 +87,27 @@ public class OrderDaoImplementation implements OrderDao{
 		return null;
 	}
 	
-	public Orders getOrderById(int id)
+	public Orders getOrderById(int id) throws OrderException
 	{
 		try(Connection con = Dao.provideConnection())
 		{
 			PreparedStatement ps = con.prepareStatement(QueryUtil.getOrderById());
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
+			boolean flag = false;
+			
 			while(rs.next())
 			{
+				flag = true;
 				String orderName = rs.getString("oname");
 				String orderValue = rs.getString("ovalue");
 				String customerId = rs.getString("customerId");
 				
 				System.out.println("Order Id: " + id + ", Order Name: " + orderName + ", Order Value: " + orderValue + ", Customer Id: " + customerId);
+			}
+			if(flag == false)
+			{
+				throw new OrderException("Order id is not valid");
 			}
 			
 		} catch (SQLException e) {
@@ -138,15 +146,19 @@ public class OrderDaoImplementation implements OrderDao{
 		{
 			PreparedStatement ps = con.prepareStatement(QueryUtil.getAllOrderValue());
 			// to get all the data row is not used. ResultSet use hota hai
+			ps.setInt(1, cusId);
+			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next())
 			{
-				int id = rs.getInt("id");
-				String orderName = rs.getString("oname");
-				String orderValue = rs.getString("ovalue");
-				String customerId = rs.getString("customerId");
+				int cusid = rs.getInt("c.id");
+				String cusName = rs.getString("c.name");
+				String cusAddress = rs.getString("c.address");
+				int orderId = rs.getInt("o.id");
+				String orderName = rs.getString("o.oname");
+				double orderValue = rs.getDouble("o.ovalue");
 				
-				System.out.println("Order Id: " + id + ", Order Name: " + orderName + ", Order Value: " + orderValue + ", Customer Id: " + customerId);
+				System.out.println("Customer Id: " + cusid + ", Customer Name :" + cusName + ", Customer Address: " + cusAddress + ", Order id: " + orderId + " , Order Name: " + orderName + ", Order Value: " + orderValue);
 			}
 		}
 		catch (SQLException e) {
@@ -159,7 +171,21 @@ public class OrderDaoImplementation implements OrderDao{
 	@Override
 	public void getCustomerWiseTotalOrder() {
 		// TODO Auto-generated method stub
-		
+		try(Connection con = Dao.provideConnection())
+		{
+			PreparedStatement ps = con.prepareStatement(QueryUtil.getCustomersTotalOrder());
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				String cusName = rs.getString("c.name");
+				String totalOrder = rs.getString("totalOrder");
+				
+				System.out.println("Customer Name: " + cusName + ", Total Order: " + totalOrder);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-
 }

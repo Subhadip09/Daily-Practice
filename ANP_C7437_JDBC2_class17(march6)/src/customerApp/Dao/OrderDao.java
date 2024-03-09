@@ -2,6 +2,7 @@ package customerApp.Dao;
 
 import java.util.List;
 
+import customerApp.Exception.OrderException;
 import customerApp.Model.Orders;
 
 public interface OrderDao {
@@ -11,7 +12,7 @@ public interface OrderDao {
 	
 	public List<Orders> getAllOrder();
 	
-	public Orders getOrderById(int id);
+	public Orders getOrderById(int id) throws OrderException;
 	
 	public Orders getHighestValuedOrderOfParticularCustomer();
 	

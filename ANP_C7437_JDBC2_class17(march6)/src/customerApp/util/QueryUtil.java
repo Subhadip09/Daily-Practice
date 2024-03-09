@@ -52,6 +52,11 @@ public class QueryUtil {
 	}
 	public static String getAllOrderValue()
 	{
-		return "select c.name, o.value from customer c inner join orders o on c.id = o.customerId";
+		return "select c.id, c.name, c.address, o.id, o.oname, o.ovalue from customer c inner join orders o on c.id = o.customerId where o.customerId = ?";
+	}
+	
+	public static String getCustomersTotalOrder()
+	{
+		return "select c.name, count(o.id) as totalOrder from customer c inner join orders o on c.id = o.customerId group by c.name";
 	}
 }

@@ -6,6 +6,7 @@ import customerApp.Dao.*;
 import customerApp.DaoImplementation.CustomerDaoImplementation;
 import customerApp.DaoImplementation.OrderDaoImplementation;
 import customerApp.Exception.CustomerException;
+import customerApp.Exception.OrderException;
 import customerApp.Model.Customer;
 import customerApp.Model.Orders;
 
@@ -21,6 +22,9 @@ public class CustomerMainStuff {
 		boolean flag = true;
 
 		while (flag) {
+			System.out.println();
+			System.out.println();
+			System.out.println("Welcome🙏🙏🙏");
 			System.out.println("enter 1 for insert data");
 			System.out.println("enter 2 for delete data");
 			System.out.println("enter 3 for update data");
@@ -31,6 +35,8 @@ public class CustomerMainStuff {
 			System.out.println("enter 9 for get all order");
 			System.out.println("enter 10 for get order by id");
 			System.out.println("enter 11 for get the highest valued order of particular customer");
+			System.out.println("enter 12 for get all order of a particular customer");
+			System.out.println("enter 13 for get customerwise total order");
 			System.out.println("enter 6 for exit");
 
 			int choice = sc.nextInt();
@@ -175,17 +181,37 @@ public class CustomerMainStuff {
 				break;
 				
 			case 10:
-				System.out.println("you want to get data of order by id");
+				try {
+					System.out.println("you want to get data of order by id");
 
-				System.out.println("enter id of order");
-				int id1 = sc.nextInt();
+					System.out.println("enter id of order");
+					int id1 = sc.nextInt();
+						
+					odao.getOrderById(id1);
 					
-				odao.getOrderById(id1);
+				}catch (OrderException e) {
+					// TODO Auto-generated catch block
+					System.out.println(e.getMessage());
+				}
 				break;
+				
 			case 11:
 				System.out.println("you want to get highest valued order of particular customer");
 				
 				odao.getHighestValuedOrderOfParticularCustomer();
+				break;
+			case 12:
+				System.out.println("you want to get all orders of a customer");
+				
+				System.out.println("enter the id of customer");
+				int cusId1 = sc.nextInt();
+				
+				odao.getAllOrderValue(cusId1);
+				break;
+			case 13:
+				System.out.println("you want to get all customers no of total order");
+				odao.getCustomerWiseTotalOrder();
+				break;
 			}
 		}
 	}
