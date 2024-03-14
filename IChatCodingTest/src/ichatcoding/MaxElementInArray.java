@@ -21,10 +21,8 @@ public class MaxElementInArray {
 	              sc.nextLine(); // Consume the invalid input
 	        }
 	    }
-		
 		//Creating an array of given size
 		int array[] = new int[size];
-		
 		//Prompting user to enter the elements of array
 		System.out.println("Enter the elements of the array:");
         for (int i = 0; i < size; i++)
@@ -41,18 +39,13 @@ public class MaxElementInArray {
                 }
             }
         }
-		
 		int maxElement = findMaxElement(array, size);
-		
-		
 		// Printing the result 
 		System.out.println("Maximum element in the array is: " + maxElement);
 	}
-
 	private static int findMaxElement(int[] array, int size) {
 		//Taking the first element of the array as maximum element
-		int max = array[0];
-				
+		int max = array[0];	
 		//By a taking the first element as maximum finding the maximum element
 		for(int i = 1; i < size; i++)
 		{
