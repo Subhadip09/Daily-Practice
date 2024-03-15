@@ -93,7 +93,46 @@ public class App
         	System.out.println(e.getName());
         }
         
-     // to get the employee in between specific employee_id
+        // to get the employee in between specific employee_id
+        Query query3 = em.createQuery("select emp from Employee emp where emp.empId Between 12 and 232");
+        
+        List<Employee> list3 = query3.getResultList();
+        
+        for(Employee e : list3)
+        {
+        	System.out.println(e);
+        }
+        
+        // to access the @NamedQuery of Employee
+        Query q = em.createNamedQuery("find by id");
+        q.setParameter("id", 232);
+        
+        Employee e = (Employee) q.getSingleResult();
+        
+        System.out.println(e.getName());
+        
+        // to use sql query in hibernate native query is used
+        Query q1 = em.createNativeQuery("select * from employee_details", Employee.class);
+        
+        List<Employee> list4 = q1.getResultList();
+        
+        for(Employee e1 : list4)
+        {
+        	System.out.println(e1);
+        }
+        
+        // to get data from @NamedNativeQuery
+        Query q2 = em.createNamedQuery("findAll");
+        List<Employee> list5 = q2.getResultList();
+        
+        for(Employee e2 : list5)
+        {
+        	System.out.println(e2);
+        }
+        
+        Query q3 = em.createNamedQuery("findUnique");
+        Employee e3 = (Employee) q3.getSingleResult();
+        System.out.println(e3);
         
     }
 }
