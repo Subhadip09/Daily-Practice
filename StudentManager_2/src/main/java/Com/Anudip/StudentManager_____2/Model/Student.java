@@ -69,7 +69,4 @@ public class Student {
 		this.stMarks = stMarks;
 		
 	}
-	
-	
-
 }

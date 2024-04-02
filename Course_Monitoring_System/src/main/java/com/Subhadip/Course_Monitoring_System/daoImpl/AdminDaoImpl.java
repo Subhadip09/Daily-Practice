@@ -2,6 +2,8 @@ package com.Subhadip.Course_Monitoring_System.daoImpl;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import com.Subhadip.Course_Monitoring_System.dao.AdminDao;
 import com.Subhadip.Course_Monitoring_System.exception.AdminException;
 import com.Subhadip.Course_Monitoring_System.model.Admin;
@@ -9,13 +11,20 @@ import com.Subhadip.Course_Monitoring_System.model.Batch;
 import com.Subhadip.Course_Monitoring_System.model.Course;
 import com.Subhadip.Course_Monitoring_System.model.CoursePlan;
 import com.Subhadip.Course_Monitoring_System.model.Faculty;
+import com.Subhadip.Course_Monitoring_System.utility.Dao;
 
 public class AdminDaoImpl implements AdminDao{
 
 	@Override
 	public String createAdmin(Admin a) throws AdminException {
 		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = Dao.provideConnection();
+		em.getTransaction().begin();
+		em.persist(a);
+		em.getTransaction().commit();
+		em.close();
+		
+		return "Admin Info Inserted";
 	}
 
 	@Override

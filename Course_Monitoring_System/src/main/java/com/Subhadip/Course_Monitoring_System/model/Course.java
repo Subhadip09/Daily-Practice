@@ -1,7 +1,9 @@
 package com.Subhadip.Course_Monitoring_System.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Course {
@@ -13,6 +15,17 @@ public class Course {
 	private String courseFee;
 	
 	private String courseDescription;
+	
+	//@OneToMany(cascade = CascadeType.ALL)
+	private Batch batch;
+
+	public Batch getBatch() {
+		return batch;
+	}
+
+	public void setBatch(Batch batch) {
+		this.batch = batch;
+	}
 
 	public int getCourseId() {
 		return courseId;

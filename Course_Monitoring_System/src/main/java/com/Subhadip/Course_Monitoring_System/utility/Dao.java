@@ -8,7 +8,7 @@ public class Dao {
 	private static EntityManagerFactory emf = null;
 	
 	static {
-		emf = Persistence.createEntityManagerFactory("Course");
+		emf = Persistence.createEntityManagerFactory("Admin");
 	}
 	
 	public static EntityManager provideConnection()
